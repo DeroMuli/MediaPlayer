@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.media.MediaView?>
+<?import javafx.scene.control.*?>
+
+<VBox fx:id = "Box" maxHeight="-Infinity"  maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxapplication2.FXMLDocumentController">
+  <children>
+    <MenuBar VBox.vgrow="NEVER">
+      <menus>
+        <Menu mnemonicParsing="false" text="Media">
+               <items>
+                  <MenuItem fx:id="OpenFileMenuItem" mnemonicParsing="false" onAction="#MediaOperations" text="Open File" />
+                  <MenuItem fx:id="MultipleFileMenuItem" mnemonicParsing="false" onAction="#MediaOperations" text="Open Multiple Files" />
+                  <MenuItem fx:id="OpenFolderMenuItem" mnemonicParsing="false" onAction="#MediaOperations" text="Open Folder" />
+                  <MenuItem fx:id="OpenDiscMenuItem" mnemonicParsing="false" onAction="#MediaOperations" text="Open Disc" />
+                  <MenuItem fx:id="OpenNetworkStreamMenuItem" mnemonicParsing="false" onAction="#MediaOperations" text="Open Network Stream" />
+                  <MenuItem fx:id="OpenCaptureDeviceMenuItem" mnemonicParsing="false" onAction="#MediaOperations" text="Open Capture Device" />
+                  <Menu fx:id = "RecentFilesMenu"  mnemonicParsing="false" text="Open Recent Files">
+                    <items>
+                        <SeparatorMenuItem fx:id = "Separator" mnemonicParsing="false" />
+                        <MenuItem fx:id = "ClearMenuItem" onAction="#ClearButton"  mnemonicParsing="false" text="Clear" />
+                    </items>
+                  </Menu>
+                  <SeparatorMenuItem mnemonicParsing="false" />
+                  <MenuItem fx:id="QuitMenuItem" mnemonicParsing="false" onAction="#MediaOperations" text="Quit" />
+               </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="PlayBack">
+               <items>
+                  <Menu mnemonicParsing="false" text="Speed">
+                     <items>
+                        <MenuItem fx:id="FastMenuItem" disable="true" mnemonicParsing="false" onAction="#PlayBackOperations" text="Fast" />
+                        <MenuItem fx:id="NormalMenuItem" disable="true" mnemonicParsing="false" onAction="#PlayBackOperations" text="Normal" />
+                        <MenuItem fx:id="SlowMenuItem" disable="true" mnemonicParsing="false" onAction="#PlayBackOperations" text="Slow" />
+                     </items>
+                  </Menu>
+                  <SeparatorMenuItem mnemonicParsing="false" />
+                  <MenuItem fx:id="JumpForwardMenuItem" disable="true" mnemonicParsing="false" onAction="#PlayBackOperations" text="Jump Forward" />
+                  <MenuItem fx:id="JumpBackwardsMenuItem" disable="true" mnemonicParsing="false" onAction="#PlayBackOperations" text="Jump Backwards" />
+                  <MenuItem fx:id="JumpToSpecificTimeMenuItem" disable="true" mnemonicParsing="false" onAction="#PlayBackOperations" text="Jump to specific Time" />
+                  <SeparatorMenuItem mnemonicParsing="false" />
+                  <MenuItem fx:id="PauseMenuItem" disable="true" mnemonicParsing="false" onAction="#PlayBackOperations" text="Pause" />
+                  <MenuItem fx:id="StopMenuItem" disable="true" mnemonicParsing="false" onAction="#PlayBackOperations" text="Stop" />
+                  <MenuItem fx:id="PreviousMenuItem" disable="true" mnemonicParsing="false" onAction="#PlayBackOperations" text="Previous" />
+                  <MenuItem fx:id="NextMenuItem" disable="true" mnemonicParsing="false" onAction="#PlayBackOperations" text="Next" />
+                  <MenuItem fx:id="RecordMenuItem" disable="true" mnemonicParsing="false" onAction="#PlayBackOperations" text="Record" />
+               </items></Menu>
+        <Menu mnemonicParsing="false" text="Audio">
+          <items>
+            <MenuItem fx:id="IncreaseVolumeMenuItem" mnemonicParsing="false" onAction="#AudioHandler" text="Increase Volume" />
+                  <MenuItem fx:id="ReduceVolumeMenuItem" mnemonicParsing="false" onAction="#AudioHandler" text="Reduce Volume" />
+                  <MenuItem fx:id="MuteMenuItme" disable="true" mnemonicParsing="false" onAction="#AudioHandler" text="Mute" />
+          </items>
+        </Menu>
+            <Menu mnemonicParsing="false" text="Video">
+              <items>
+                <MenuItem fx:id="FullScreenMenuItem" mnemonicParsing="false" onAction="#VideoHandler" text="FullScreen" />
+                  <MenuItem fx:id="TakeSnapshotMenuItem" mnemonicParsing="false" onAction="#VideoHandler" text="TakeSnapshot" />
+              </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Subtitle">
+              <items>
+                <MenuItem id="AddSubtitleFilesMenuItem" mnemonicParsing="false" onAction="#SubtitleHandler" text="Add Subtittle Files" />
+                  <Menu id="SubTrackMenu" mnemonicParsing="false" text="Sub Track">
+                    <items>
+                      <MenuItem mnemonicParsing="false" text="Action 1" />
+                    </items>
+                  </Menu>
+              </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="View">
+              <items>
+                <MenuItem id="ChangeThemeMenuItem" mnemonicParsing="false" onAction="#ChangeTheme" text="ChangeTheme" />
+              </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="About Us">
+               <items>
+                  <MenuItem id="AboutUsMenuItem" mnemonicParsing="false" onAction="#AboutUs" text="About us" />
+               </items></Menu>
+      </menus>
+    </MenuBar>
+      <AnchorPane fx:id="mediapane"  maxHeight="Infinity" maxWidth="Infinity"    VBox.vgrow="ALWAYS">
+         <children >
+            <MediaView fx:id="View"   />
+         </children>
+      </AnchorPane>
+      <ProgressBar fx:id="VideoSlider"  progress="0.0"  prefHeight="5"  maxWidth="Infinity"  VBox.vgrow="ALWAYS"   />
+      <ToolBar prefHeight="40.0" prefWidth="643.0" VBox.vgrow="NEVER">
+        <items>
+          <Button fx:id="PlayButton" disable="true" mnemonicParsing="false" onAction="#Play" text="Play" />
+            <Button fx:id="MuteButton" disable="true" mnemonicParsing="false" onAction="#Mute" text="Mute" />
+            <Slider fx:id="VolumeSlider" />
+        </items>
+      </ToolBar>
+  </children>
+</VBox>

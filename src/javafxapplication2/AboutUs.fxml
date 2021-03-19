@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane id="AnchorPane" maxHeight="50" minHeight="50"  prefHeight="50.0" maxWidth="400" minWidth="400" prefWidth="400.0" xmlns:fx="http://javafx.com/fxml/1">
+<TextArea text="The program was done by Muli as a hobby project during Covid-19" 
+          maxHeight="40" minHeight="40" prefHeight="40" maxWidth="400" minWidth="400" wrapText="true" prefWidth="400" editable="false"  />    
+</Pane>
